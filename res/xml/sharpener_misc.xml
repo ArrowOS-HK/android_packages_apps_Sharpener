@@ -18,6 +18,13 @@
     android:title="@string/sharpener_misc_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <!-- Spoof -->
+    <Preference
+        android:key="spoofing"
+        android:title="@string/spoofing_title"
+        android:summary="@string/spoofing_summary"
+        android:fragment="com.arrow.support.fragments.Spoof" />
+
     <Preference
         android:key="omnijaws_settings"
         android:title="@string/qs_weather_settings_title"
