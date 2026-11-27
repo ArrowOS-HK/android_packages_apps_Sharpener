@@ -30,8 +30,7 @@ import java.util.Map;
 
 public class SharpenerMenuController extends AbstractPreferenceController {
 
-    private static final String KEY_MENU_TOP = "sharpener_menu_top";
-    private static final String KEY_MENU_BOTTOM = "sharpener_menu_bottom";
+    private static final String KEY_MENU_LAYOUT = "sharpener_menu_layout";
 
     public SharpenerMenuController(Context context) {
         super(context);
@@ -41,37 +40,29 @@ public class SharpenerMenuController extends AbstractPreferenceController {
     public void displayPreference(PreferenceScreen screen) {
         super.displayPreference(screen);
 
-        LayoutPreference sharpenerMenuTop = (LayoutPreference) screen.findPreference(KEY_MENU_TOP);
-        if (sharpenerMenuTop != null) {
-            Map<Integer, Intent> clickMap = new HashMap<>();
-            clickMap.put(R.id.sharpener_quicksettings, new Intent().setComponent(new ComponentName("com.android.settings", "com.android.settings.Settings$SharpenerQuickSettingsActivity")));
-            clickMap.put(R.id.sharpener_statusbar, new Intent().setComponent(new ComponentName("com.android.settings", "com.android.settings.Settings$SharpenerStatusBarActivity")));
-            clickMap.put(R.id.sharpener_about, new Intent().setComponent(new ComponentName("com.android.settings", "com.android.settings.Settings$SharpenerAboutActivity")));
-
-            for (Map.Entry<Integer, Intent> entry : clickMap.entrySet()) {
-                View view = sharpenerMenuTop.findViewById(entry.getKey());
-                if (view != null) {
-                    view.setOnClickListener(v -> mContext.startActivity(entry.getValue()));
-                }
-            }    
+        LayoutPreference sharpenerMenu = (LayoutPreference) screen.findPreference(KEY_MENU_LAYOUT);
+        if (sharpenerMenu == null) {
+            return;
         }
 
-        LayoutPreference sharpenerMenuBottom = (LayoutPreference) screen.findPreference(KEY_MENU_BOTTOM);
-        if (sharpenerMenuBottom != null) {
-            Map<Integer, Intent> clickMap = new HashMap<>();
-            clickMap.put(R.id.sharpener_notifications, new Intent().setComponent(new ComponentName("com.android.settings", "com.android.settings.Settings$SharpenerNotificationActivity")));
-            clickMap.put(R.id.sharpener_lockscreen, new Intent().setComponent(new ComponentName("com.android.settings", "com.android.settings.Settings$SharpenerLockScreenActivity")));
-            clickMap.put(R.id.sharpener_gestures, new Intent().setComponent(new ComponentName("com.android.settings", "com.android.settings.Settings$SettingsGestureActivity")));
-            clickMap.put(R.id.sharpener_themes, new Intent().setComponent(new ComponentName("com.android.settings", "com.android.settings.Settings$SharpenerThemesActivity")));
-            clickMap.put(R.id.sharpener_buttons, new Intent().setComponent(new ComponentName("com.android.settings", "com.android.settings.Settings$SharpenerButtonsActivity")));
-            clickMap.put(R.id.sharpener_misc, new Intent().setComponent(new ComponentName("com.android.settings", "com.android.settings.Settings$SharpenerMiscActivity")));
+        Map<Integer, String> clickMap = new HashMap<>();
+        clickMap.put(R.id.sharpener_lockscreen, "com.android.settings.Settings$SharpenerLockScreenActivity");
+        clickMap.put(R.id.sharpener_themes, "com.android.settings.Settings$SharpenerThemesActivity");
+        clickMap.put(R.id.sharpener_notifications, "com.android.settings.Settings$SharpenerNotificationActivity");
+        clickMap.put(R.id.sharpener_quicksettings, "com.android.settings.Settings$SharpenerQuickSettingsActivity");
+        clickMap.put(R.id.sharpener_statusbar, "com.android.settings.Settings$SharpenerStatusBarActivity");
+        clickMap.put(R.id.sharpener_about, "com.android.settings.Settings$SharpenerAboutActivity");
+        clickMap.put(R.id.sharpener_gestures, "com.android.settings.Settings$SettingsGestureActivity");
+        clickMap.put(R.id.sharpener_buttons, "com.android.settings.Settings$SharpenerButtonsActivity");
+        clickMap.put(R.id.sharpener_misc, "com.android.settings.Settings$SharpenerMiscActivity");
 
-            for (Map.Entry<Integer, Intent> entry : clickMap.entrySet()) {
-                View view = sharpenerMenuBottom.findViewById(entry.getKey());
-                if (view != null) {
-                    view.setOnClickListener(v -> mContext.startActivity(entry.getValue()));
-                }
-            }    
+        for (Map.Entry<Integer, String> entry : clickMap.entrySet()) {
+            View view = sharpenerMenu.findViewById(entry.getKey());
+            if (view != null) {
+                Intent intent = new Intent().setComponent(
+                        new ComponentName("com.android.settings", entry.getValue()));
+                view.setOnClickListener(v -> mContext.startActivity(intent));
+            }
         }
     }
 
@@ -82,6 +73,6 @@ public class SharpenerMenuController extends AbstractPreferenceController {
 
     @Override
     public String getPreferenceKey() {
-        return KEY_MENU_TOP;
+        return KEY_MENU_LAYOUT;
     }
 }

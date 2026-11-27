@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/sharpener_smokey_card_ripple">
+    <item android:id="@android:id/mask">
+        <shape>
+            <solid android:color="#ffffffff" />
+            <corners android:radius="30.0dip" />
+        </shape>
+    </item>
+    <item android:id="@android:id/background">
+        <shape>
+            <solid android:color="?android:windowBackground" />
+            <corners android:radius="30.0dip" />
+        </shape>
+    </item>
+</ripple>

@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 ArrowOS-T
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="16.0dip"
+    android:paddingTop="8.0dip"
+    android:paddingBottom="16.0dip">
+
+    <!-- Top Row: Lock screen preview + Themes & Notifications -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="280.0dip"
+        android:layout_marginBottom="12.0dip"
+        android:orientation="horizontal">
+
+        <!-- Lock screen card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/sharpener_lockscreen"
+            android:layout_width="0.0dip"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="6.0dip"
+            android:layout_weight="1.1"
+            android:clickable="true"
+            android:contentDescription="@string/sharpener_lockscreen_title"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/sharpener_smokey_card_color"
+            app:cardCornerRadius="20.0dip"
+            app:cardElevation="0.0dip">
+
+            <com.arrow.support.widget.BlurBackgroundImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/sharpener_smokey_lockscreen_scrim" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingHorizontal="12.0dip"
+                android:paddingTop="20.0dip"
+                android:paddingBottom="14.0dip">
+
+                <View
+                    android:layout_width="0.0dip"
+                    android:layout_height="0.0dip"
+                    android:layout_weight="1.0" />
+
+                <TextClock
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:format12Hour="EEE, MMM dd"
+                    android:format24Hour="EEE, MMM dd"
+                    android:letterSpacing="0.03"
+                    android:singleLine="true"
+                    android:textColor="#E6FFFFFF"
+                    android:textSize="11.0sp" />
+
+                <TextClock
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8.0dip"
+                    android:fontFamily="sans-serif-medium"
+                    android:format12Hour="hh&#10;mm"
+                    android:format24Hour="HH&#10;mm"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:lineSpacingMultiplier="0.82"
+                    android:shadowColor="#40000000"
+                    android:shadowDy="2"
+                    android:shadowRadius="4"
+                    android:textColor="@android:color/white"
+                    android:textSize="50.0sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0.0dip"
+                    android:layout_height="0.0dip"
+                    android:layout_weight="1.0" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="34.0dip">
+
+                    <ImageView
+                        android:layout_width="32.0dip"
+                        android:layout_height="32.0dip"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/sharpener_smokey_lockscreen_shortcut_bg"
+                        android:contentDescription="@null"
+                        android:padding="8.0dip"
+                        android:src="@drawable/ic_smokey_flashlight"
+                        android:tint="@android:color/white" />
+
+                    <ImageView
+                        android:layout_width="22.0dip"
+                        android:layout_height="22.0dip"
+                        android:layout_centerInParent="true"
+                        android:alpha="0.9"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_sharpener_lockscreen"
+                        android:tint="@android:color/white" />
+
+                    <ImageView
+                        android:layout_width="32.0dip"
+                        android:layout_height="32.0dip"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/sharpener_smokey_lockscreen_shortcut_bg"
+                        android:contentDescription="@null"
+                        android:padding="8.0dip"
+                        android:src="@drawable/ic_smokey_camera"
+                        android:tint="@android:color/white" />
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Right stack: Themes + Notifications -->
+        <LinearLayout
+            android:layout_width="0.0dip"
+            android:layout_height="match_parent"
+            android:layout_marginStart="6.0dip"
+            android:layout_weight="1.0"
+            android:orientation="vertical">
+
+            <!-- Themes -->
+            <RelativeLayout
+                android:id="@+id/sharpener_themes"
+                android:layout_width="match_parent"
+                android:layout_height="0.0dip"
+                android:layout_marginBottom="6.0dip"
+                android:layout_weight="1.0"
+                android:background="@drawable/sharpener_smokey_rounded_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="14.0dip">
+
+                <ImageView
+                    android:layout_width="40.0dip"
+                    android:layout_height="40.0dip"
+                    android:background="@drawable/sharpener_smokey_circle_bg"
+                    android:contentDescription="@null"
+                    android:padding="9.0dip"
+                    android:src="@drawable/ic_sharpener_themes"
+                    android:tint="?android:colorAccent" />
+
+                <ImageView
+                    android:layout_width="40.0dip"
+                    android:layout_height="40.0dip"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/sharpener_smokey_circle_bg"
+                    android:contentDescription="@null"
+                    android:padding="8.0dip"
+                    android:src="@drawable/ic_smokey_chevron_right"
+                    android:tint="?android:colorAccent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="@string/sharpener_themes_title"
+                        android:textColor="?android:colorAccent"
+                        android:textSize="17.0sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0.6"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="@string/sharpener_themes_summary"
+                        android:textColor="?android:colorAccent"
+                        android:textSize="11.0sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- Notifications -->
+            <RelativeLayout
+                android:id="@+id/sharpener_notifications"
+                android:layout_width="match_parent"
+                android:layout_height="0.0dip"
+                android:layout_marginTop="6.0dip"
+                android:layout_weight="1.0"
+                android:background="@drawable/sharpener_smokey_rounded_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="14.0dip">
+
+                <ImageView
+                    android:layout_width="40.0dip"
+                    android:layout_height="40.0dip"
+                    android:background="@drawable/sharpener_smokey_circle_bg"
+                    android:contentDescription="@null"
+                    android:padding="9.0dip"
+                    android:src="@drawable/ic_smokey_notifications"
+                    android:tint="?android:colorAccent" />
+
+                <ImageView
+                    android:layout_width="40.0dip"
+                    android:layout_height="40.0dip"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/sharpener_smokey_circle_bg"
+                    android:contentDescription="@null"
+                    android:padding="8.0dip"
+                    android:src="@drawable/ic_smokey_chevron_right"
+                    android:tint="?android:colorAccent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="@string/sharpener_notifications_title"
+                        android:textColor="?android:colorAccent"
+                        android:textSize="17.0sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0.6"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="@string/sharpener_notifications_summary"
+                        android:textColor="?android:colorAccent"
+                        android:textSize="11.0sp" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Middle Row: Quick Settings -->
+    <LinearLayout
+        android:id="@+id/sharpener_quicksettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sharpener_smokey_rounded_bg"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:padding="8.0dip">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5.0dip"
+            android:background="@drawable/sharpener_smokey_qs_inner_bg"
+            android:orientation="vertical"
+            android:padding="12.0dip">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2">
+
+                <LinearLayout
+                    android:layout_width="0.0dip"
+                    android:layout_height="52.0dip"
+                    android:layout_columnWeight="1.0"
+                    android:layout_margin="4.0dip"
+                    android:background="@drawable/sharpener_smokey_tile_active"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="12.0dip">
+
+                    <ImageView
+                        android:layout_width="20.0dip"
+                        android:layout_height="20.0dip"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_smokey_wifi"
+                        android:tint="?android:colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8.0dip"
+                        android:singleLine="true"
+                        android:text="Internet"
+                        android:textColor="?android:colorPrimary"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0.0dip"
+                    android:layout_height="52.0dip"
+                    android:layout_columnWeight="1.0"
+                    android:layout_margin="4.0dip"
+                    android:background="@drawable/sharpener_smokey_tile_inactive"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="12.0dip">
+
+                    <ImageView
+                        android:layout_width="20.0dip"
+                        android:layout_height="20.0dip"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_smokey_bluetooth"
+                        android:tint="?android:colorAccent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8.0dip"
+                        android:singleLine="true"
+                        android:text="Bluetooth"
+                        android:textColor="?android:colorAccent" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0.0dip"
+                    android:layout_height="52.0dip"
+                    android:layout_columnWeight="1.0"
+                    android:layout_margin="4.0dip"
+                    android:background="@drawable/sharpener_smokey_tile_inactive"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="12.0dip">
+
+                    <ImageView
+                        android:layout_width="20.0dip"
+                        android:layout_height="20.0dip"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_smokey_flashlight"
+                        android:tint="?android:colorAccent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8.0dip"
+                        android:singleLine="true"
+                        android:text="Flashlight"
+                        android:textColor="?android:colorAccent" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0.0dip"
+                    android:layout_height="52.0dip"
+                    android:layout_columnWeight="1.0"
+                    android:layout_margin="4.0dip"
+                    android:background="@drawable/sharpener_smokey_tile_active"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="12.0dip">
+
+                    <ImageView
+                        android:layout_width="20.0dip"
+                        android:layout_height="20.0dip"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_smokey_hotspot"
+                        android:tint="?android:colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8.0dip"
+                        android:singleLine="true"
+                        android:text="Hotspot"
+                        android:textColor="?android:colorPrimary"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </GridLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginVertical="2.0dip"
+            android:singleLine="true"
+            android:text="@string/sharpener_quicksettings_title"
+            android:textColor="?android:colorAccent"
+            android:textSize="14.0sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Bottom Row: Status bar + About Us / Gestures / Buttons / Misc -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180.0dip"
+        android:layout_marginTop="12.0dip"
+        android:orientation="horizontal">
+
+        <!-- Status bar card -->
+        <RelativeLayout
+            android:id="@+id/sharpener_statusbar"
+            android:layout_width="0.0dip"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="6.0dip"
+            android:layout_weight="1.0"
+            android:background="@drawable/sharpener_smokey_rounded_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="14.0dip">
+
+            <TextView
+                android:id="@+id/txt_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:singleLine="true"
+                android:text="@string/sharpener_statusbar_title"
+                android:textColor="?android:colorAccent"
+                android:textSize="18.0sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_status"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4.0dip"
+                android:alpha="0.7"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="2"
+                android:text="@string/sharpener_statusbar_summary"
+                android:textColor="?android:colorAccent"
+                android:textSize="11.0sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45.0dip"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="4.0dip"
+                android:background="@drawable/sharpener_smokey_inner_capsule_bg"
+                android:gravity="center"
+                android:paddingHorizontal="12.0dip">
+
+                <ImageView
+                    android:layout_width="20.0dip"
+                    android:layout_height="20.0dip"
+                    android:layout_marginHorizontal="6.0dip"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_smokey_data"
+                    android:tint="?android:colorAccent" />
+
+                <ImageView
+                    android:layout_width="20.0dip"
+                    android:layout_height="20.0dip"
+                    android:layout_marginHorizontal="6.0dip"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_smokey_wifi"
+                    android:tint="?android:colorAccent" />
+
+                <ImageView
+                    android:layout_width="24.0dip"
+                    android:layout_height="24.0dip"
+                    android:layout_marginHorizontal="6.0dip"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_smokey_battery"
+                    android:tint="?android:colorAccent" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- About Us + Gestures / Buttons / Misc -->
+        <RelativeLayout
+            android:layout_width="0.0dip"
+            android:layout_height="match_parent"
+            android:layout_marginStart="6.0dip"
+            android:layout_weight="1.0"
+            android:background="@drawable/sharpener_smokey_rounded_bg"
+            android:padding="10.0dip">
+
+            <LinearLayout
+                android:id="@+id/sharpener_about"
+                android:layout_width="match_parent"
+                android:layout_height="50.0dip"
+                android:background="@drawable/sharpener_smokey_inner_capsule_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:paddingHorizontal="8.0dip">
+
+                <ImageView
+                    android:layout_width="22.0dip"
+                    android:layout_height="22.0dip"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_smokey_about"
+                    android:tint="?android:colorAccent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8.0dip"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@string/sharpener_about_title"
+                    android:textColor="?android:colorAccent"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="4.0dip"
+                android:orientation="horizontal">
+
+                <!-- Gestures -->
+                <LinearLayout
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:id="@+id/sharpener_gestures"
+                        android:layout_width="42.0dip"
+                        android:layout_height="42.0dip"
+                        android:background="@drawable/sharpener_smokey_circle_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+                        <ImageView
+                            android:layout_width="20.0dip"
+                            android:layout_height="20.0dip"
+                            android:layout_gravity="center"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_smokey_gestures"
+                            android:tint="?android:colorAccent" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6.0dip"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="@string/sharpener_gestures_title"
+                        android:textColor="?android:colorAccent"
+                        android:textSize="11.0sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Buttons -->
+                <LinearLayout
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:id="@+id/sharpener_buttons"
+                        android:layout_width="42.0dip"
+                        android:layout_height="42.0dip"
+                        android:background="@drawable/sharpener_smokey_circle_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+                        <ImageView
+                            android:layout_width="20.0dip"
+                            android:layout_height="20.0dip"
+                            android:layout_gravity="center"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_sharpener_buttons"
+                            android:tint="?android:colorAccent" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6.0dip"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="@string/sharpener_buttons_title"
+                        android:textColor="?android:colorAccent"
+                        android:textSize="11.0sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Misc -->
+                <LinearLayout
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:id="@+id/sharpener_misc"
+                        android:layout_width="42.0dip"
+                        android:layout_height="42.0dip"
+                        android:background="@drawable/sharpener_smokey_circle_bg"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+                        <ImageView
+                            android:layout_width="20.0dip"
+                            android:layout_height="20.0dip"
+                            android:layout_gravity="center"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_smokey_misc"
+                            android:tint="?android:colorAccent" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6.0dip"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="@string/sharpener_misc_title"
+                        android:textColor="?android:colorAccent"
+                        android:textSize="11.0sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

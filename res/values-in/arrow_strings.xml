@@ -49,7 +49,7 @@
     <string name="about_fork_github_title" translatable="false">ArrowOS-Fork GitHub</string>
     <string name="about_fork_github_summary">Lihat GitHub ArrowOS-Fork</string>
     <string name="about_source_manager_title" translatable="false">Pengelola Sumber</string>
-    <string name="about_source_manager_summary">Iverz Asterix</string>
+    <string name="about_source_manager_summary">Hirokixd</string>
 
     <!-- General strings -->
     <string name="ok">OK</string>
@@ -149,5 +149,26 @@
     <string name="island_notification_footer_text">
         Fitur notifikasi Island, terinspirasi oleh Dynamic Island dari iOS, mengubah heads-up notification Android menjadi utilitas notifikasi yang ringkas dan cepat diakses.\n\nFitur Akses Cepat Island meliputi:\n1. Ketuk notifikasi island untuk menjawab panggilan telepon dengan cepat.\n2. Tekan lama notifikasi island untuk menolak panggilan telepon.\n3. Tekan lama notifikasi island untuk memperluas pratinjau notifikasi island.
     </string>
+
+    <!-- Extended QS -->
+    <string name="qs_invqs_category_title">QS Extended</string>
+    <string name="qs_invqs_enabled_title">Gunakan QS Extended</string>
+    <string name="qs_invqs_enabled_summary">Ubah QS kamu menjadi gaya extended</string>
+    <string name="qs_invqs_split_mode_title">Mode notifikasi &amp; tarik panel</string>
+    <string name="qs_invqs_split_mode_classic">1x tarik: kontrol Extended + notifikasi, 2x tarik: panel penuh &amp; tile</string>
+    <string name="qs_invqs_split_mode_split">Geser ke kiri untuk notifikasi saja, ke kanan untuk QS Extended saja</string>
+    <string name="qs_invqs_custom_controls_category">Kontrol Kustom</string>
+    <string name="invos_qs_custom_username_title">Nama pengguna kustom</string>
+    <string name="invos_qs_custom_subtitle_title">Subjudul kustom</string>
+    <string name="invos_qs_custom_image_select_title">Pilih gambar kustom</string>
+    <string name="invos_qs_custom_image_select_summary">Pilih foto atau GIF dari penyimpanan</string>
+    <string name="invos_qs_custom_image_clear_title">Hapus gambar kustom</string>
+    <string name="invos_qs_custom_gif_animate_title">Animasi GIF</string>
+    <string name="invos_qs_custom_gif_animate_summary">Putar animasi GIF di QS Extended (nonaktif hanya menampilkan bingkai statis)</string>
+    <string name="invos_qs_custom_image_alpha_title">Opasitas gambar kustom</string>
+
+    <!-- Lockscreen clock & date center -->
+    <string name="lockscreen_center_clock_date_title">Jam &amp; tanggal di tengah</string>
+    <string name="lockscreen_center_clock_date_summary">Posisikan jam dan tanggal lockscreen di tengah</string>
 
 </resources>

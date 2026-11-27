@@ -18,16 +18,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/sharpener_title" >
 
-    <!-- Top (Quick Settings, Status Bar and Themes)-->
+    <!-- Smokey-style Sharpener Dashboard -->
     <com.android.settingslib.widget.LayoutPreference
-        android:key="sharpener_menu_top"
-        android:layout="@layout/sharpener_menu_layout_top"
-        android:selectable="false"/>
-
-    <!-- Bottom (6 Other Menus)-->
-    <com.android.settingslib.widget.LayoutPreference
-        android:key="sharpener_menu_bottom"
-        android:layout="@layout/sharpener_menu_layout_bottom"
-        android:selectable="false"/>  
+        android:key="sharpener_menu_layout"
+        android:layout="@layout/sharpener_menu_layout"
+        android:selectable="false" />
 
 </PreferenceScreen>

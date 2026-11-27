@@ -51,7 +51,7 @@
     <string name="about_fork_github_title" translatable="false">ArrowOS-Fork GitHub</string>
     <string name="about_fork_github_summary">Check out for ArrowOS-Fork GitHub</string>
     <string name="about_source_manager_title" translatable="false">Source Manager</string>
-    <string name="about_source_manager_summary">Iverz Asterix</string>
+    <string name="about_source_manager_summary" translatable="false">Hirokixd</string>
 
     <!-- General strings -->
     <string name="ok">OK</string>
@@ -339,5 +339,26 @@
     <string name="keybox_invalid_xml">Invalid XML: missing required data</string>
     <string name="keybox_file_loaded">XML file loaded</string>
     <string name="keybox_file_read_failed">Failed to read XML</string>
+
+    <!-- Extended QS -->
+    <string name="qs_invqs_category_title">Extended QS</string>
+    <string name="qs_invqs_enabled_title">Use Extended QS</string>
+    <string name="qs_invqs_enabled_summary">Turn your Quick Settings into an extended style</string>
+    <string name="qs_invqs_split_mode_title">Notification &amp; pulldown mode</string>
+    <string name="qs_invqs_split_mode_classic">1x Extended Controls + Notifications, 2x Full Controls &amp; Tiles</string>
+    <string name="qs_invqs_split_mode_split">Swipe left for Notifications only, right for Extended QS only</string>
+    <string name="qs_invqs_custom_controls_category">Custom Controls</string>
+    <string name="invos_qs_custom_username_title">Custom username</string>
+    <string name="invos_qs_custom_subtitle_title">Custom subtitle</string>
+    <string name="invos_qs_custom_image_select_title">Select custom image</string>
+    <string name="invos_qs_custom_image_select_summary">Choose a photo or GIF from storage</string>
+    <string name="invos_qs_custom_image_clear_title">Clear custom image</string>
+    <string name="invos_qs_custom_gif_animate_title">Animate GIF</string>
+    <string name="invos_qs_custom_gif_animate_summary">Play GIF animation in Extended QS (off shows static frame)</string>
+    <string name="invos_qs_custom_image_alpha_title">Custom image opacity</string>
+
+    <!-- Lockscreen clock & date center -->
+    <string name="lockscreen_center_clock_date_title">Center clock &amp; date</string>
+    <string name="lockscreen_center_clock_date_summary">Center lockscreen clock and date horizontally</string>
 
 </resources>

@@ -18,17 +18,64 @@
     android:title="@string/sharpener_quicksettings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <PreferenceCategory
+        android:key="invqs_panel_category"
+        android:title="@string/qs_invqs_category_title">
+
+        <com.arrow.support.preferences.SystemSettingSwitchPreference
+            android:key="qs_invqs_enabled"
+            android:title="@string/qs_invqs_enabled_title"
+            android:summary="@string/qs_invqs_enabled_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="invqs_custom_controls_category"
+        android:title="@string/qs_invqs_custom_controls_category"
+        android:dependency="qs_invqs_enabled">
+
+        <androidx.preference.EditTextPreference
+            android:key="invos_qs_custom_username"
+            android:title="@string/invos_qs_custom_username_title"
+            android:persistent="false" />
+
+        <androidx.preference.EditTextPreference
+            android:key="invos_qs_custom_subtitle"
+            android:title="@string/invos_qs_custom_subtitle_title"
+            android:persistent="false" />
+
+        <Preference
+            android:key="invos_qs_custom_image_select"
+            android:title="@string/invos_qs_custom_image_select_title"
+            android:summary="@string/invos_qs_custom_image_select_summary"
+            android:persistent="false" />
+
+        <Preference
+            android:key="invos_qs_custom_image_clear"
+            android:title="@string/invos_qs_custom_image_clear_title"
+            android:persistent="false" />
+
+        <com.arrow.support.preferences.SystemSettingSwitchPreference
+            android:key="invos_qs_custom_gif_animate"
+            android:title="@string/invos_qs_custom_gif_animate_title"
+            android:summary="@string/invos_qs_custom_gif_animate_summary"
+            android:defaultValue="false" />
+
+        <com.arrow.support.preferences.SystemSettingSeekBarPreference
+            android:key="invos_qs_custom_image_alpha"
+            android:title="@string/invos_qs_custom_image_alpha_title"
+            settings:min="0"
+            android:max="255"
+            android:defaultValue="255" />
+
+    </PreferenceCategory>
+
     <com.arrow.support.preferences.SecureSettingSwitchPreference
         android:key="qs_show_data_usage"
         android:title="@string/qs_show_data_usage_title"
         android:summary="@string/qs_show_data_usage_summary"
         android:defaultValue="true" />
-
-    <com.arrow.support.preferences.SystemSettingSwitchPreference
-        android:key="qs_widgets_enabled"
-        android:title="@string/qs_widgets_enabled_title"
-        android:summary="@string/qs_widgets_enabled_summary"
-        android:defaultValue="false" />    
 
     <PreferenceCategory
         android:key="quick_settings_battery_category"
